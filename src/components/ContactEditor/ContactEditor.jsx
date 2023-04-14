@@ -5,6 +5,7 @@ import {Form, NameLabel, NameInput, NumberLabel, NumberInput, Button} from './Co
 function ContactEditor({addContact}){
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
+    
 
 
     const handleChange = event => {

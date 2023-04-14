@@ -5,6 +5,7 @@ import { nanoid } from 'nanoid';
 import { Filter } from "./Filter/Filter";
 import { Container } from "./App.styled";
 
+
 export default function App () {
 
   const [contacts, setContacts] = useState(
@@ -16,6 +17,7 @@ export default function App () {
   ]});
 
   const [filter, setFilter] = useState('');
+ 
 
  
   useEffect(() => {
@@ -64,7 +66,7 @@ return (
          <h1>Phonebook</h1>
          <ContactEditor addContact={addContact} />
          <h2>Contacts</h2>
-         <Filter value={filter} onChange={changeFilter} />
+         <Filter value={filter} onChange={changeFilter}/>
          <List contacts={visibleContacts} onDeleteContact={deleteContact} />
          </Container>
     )
