@@ -12,7 +12,7 @@ export default function App () {
 
   const [filter, setFilter] = useState('');
    const dispatch = useDispatch();
-  const contacts = useSelector((state) => state.contacts);
+  const contacts = useSelector((state) => state.contacts.contacts);
 
  
 
