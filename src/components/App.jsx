@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 import { Filter } from "./Filter/Filter";
 import { Container } from "./App.styled";
 import { useDispatch, useSelector } from "react-redux";
-import { addContact, deleteContact } from "../redux/contactsSlice";
+import { addContact} from "../redux/contactsSlice";
 
 
 export default function App () {
@@ -32,10 +32,6 @@ console.log(contacts);
     dispatch(addContact(newContact));
   };
 
-  const deleteExistingContact = (contactId) => {
-    dispatch(deleteContact(contactId));
-  };
-
   const changeFilter = (e) => {
     const value = e.currentTarget.value;
     if (value === undefined) {
@@ -58,7 +54,7 @@ return (
          <ContactEditor addNewContact={addNewContact} />
          <h2>Contacts</h2>
          <Filter value={filter} onChange={changeFilter}/>
-         <List contacts={visibleContacts} onDeleteContact={deleteExistingContact} />
+         <List contacts={visibleContacts}/>
          </Container>
     )
 }

@@ -8,8 +8,8 @@ import { deleteContact } from "redux/contactsSlice";
 
 const List = ({ contacts}) => {
      const dispatch = useDispatch();
-     const onDeleteContact = (contactId) => {
-    dispatch(deleteContact(contactId));
+     const onDeleteContact = (id) => {
+    dispatch(deleteContact(id));
   };
 return (<ul>{contacts.map(({ id, name, number }) => <Item key={id}><p>{name}</p><p>{number}</p>
         <Button onClick={() => onDeleteContact(id)}>Delete</Button></Item>)}</ul>)
@@ -25,5 +25,4 @@ List.propTypes = {
             number: PropTypes.string,
     })
     ),    
-onDeleteContact: PropTypes.func,   
 };
