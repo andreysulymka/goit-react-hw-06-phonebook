@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from 'prop-types';
 import {Form, NameLabel, NameInput, NumberLabel, NumberInput, Button} from './ContactEditor.styled'
 
-function ContactEditor({addContact}){
+function ContactEditor({addNewContact}){
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
     
@@ -24,7 +24,7 @@ function ContactEditor({addContact}){
     }
 const handleSubmit = e => {
         e.preventDefault();
-        addContact({name: name, number: number});
+        addNewContact({name: name, number: number});
     setName();
     setNumber();
     }
@@ -63,5 +63,5 @@ return (
 export default ContactEditor;
 
 ContactEditor.propTypes = {
-onSubmit: PropTypes.func 
+addNewContact: PropTypes.func.isRequired
 };
