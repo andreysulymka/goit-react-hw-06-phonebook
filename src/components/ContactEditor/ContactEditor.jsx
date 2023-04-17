@@ -1,12 +1,33 @@
 import { useState } from "react";
 import PropTypes from 'prop-types';
 import {Form, NameLabel, NameInput, NumberLabel, NumberInput, Button} from './ContactEditor.styled'
+import { useDispatch, useSelector } from "react-redux";
+import { nanoid } from 'nanoid';
+import {addContact} from "redux/contactsSlice";
 
-function ContactEditor({addNewContact}){
+function ContactEditor(){
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
-    
 
+    
+    const dispatch = useDispatch();
+    const contacts = useSelector(state => state.contacts.contacts);
+    
+    const addNewContact = (data) => {
+    const existingContact = contacts.find(
+      element => element.name.toLowerCase() === data.name.toLowerCase()
+    );
+    if (existingContact) {
+      window.alert(`${data.name} is already in contacts`);
+      return;
+    }
+    const newContact = {
+      id: nanoid(),
+      name: data.name,
+      number: data.number
+    };
+    dispatch(addContact(newContact));
+  };
 
     const handleChange = event => {
     const {name, value} = event.target

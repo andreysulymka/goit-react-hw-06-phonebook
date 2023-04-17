@@ -32,16 +32,7 @@ console.log(contacts);
     dispatch(addContact(newContact));
   };
 
-  const changeFilter = (e) => {
-    const value = e.currentTarget.value;
-    if (value === undefined) {
-      setFilter('');
-    } else {
-      setFilter(value);
-    }
-  };
-
- const getVisibleContacts = () => {
+const getVisibleContacts = () => {
     
     const normalizedContacts = filter.toLowerCase();
     return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedContacts))
@@ -53,7 +44,7 @@ return (
          <h1>Phonebook</h1>
          <ContactEditor addNewContact={addNewContact} />
          <h2>Contacts</h2>
-         <Filter value={filter} onChange={changeFilter}/>
+         <Filter value={filter}/>
          <List contacts={visibleContacts}/>
          </Container>
     )
