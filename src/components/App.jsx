@@ -10,11 +10,10 @@ import { addContact, deleteContact } from "../redux/contactsSlice";
 
 export default function App () {
 
-  const [filter, setFilter] = useState('');
-   const dispatch = useDispatch();
-  const contacts = useSelector((state) => state.contacts.contacts);
-
- 
+const [filter, setFilter] = useState('');
+const dispatch = useDispatch();
+const contacts = useSelector((state) => state.contacts.contacts);
+console.log(contacts); 
 
  
     const addNewContact = (data) => {
@@ -46,10 +45,8 @@ export default function App () {
     }
   };
 
-  const getVisibleContacts = () => {
-    if (typeof filter !== "string") {
-      return contacts;
-    }
+ const getVisibleContacts = () => {
+    
     const normalizedContacts = filter.toLowerCase();
     return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedContacts))
   }
@@ -58,7 +55,7 @@ export default function App () {
 return (
        <Container>
          <h1>Phonebook</h1>
-         <ContactEditor addContact={addNewContact} />
+         <ContactEditor addNewContact={addNewContact} />
          <h2>Contacts</h2>
          <Filter value={filter} onChange={changeFilter}/>
          <List contacts={visibleContacts} onDeleteContact={deleteExistingContact} />

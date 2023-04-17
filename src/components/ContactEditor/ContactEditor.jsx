@@ -63,5 +63,5 @@ return (
 export default ContactEditor;
 
 ContactEditor.propTypes = {
-addNewContact: PropTypes.func.isRequired
+addNewContact: PropTypes.func
 };
