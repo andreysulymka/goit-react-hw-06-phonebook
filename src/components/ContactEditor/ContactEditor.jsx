@@ -47,8 +47,8 @@ function ContactEditor(){
 const handleSubmit = e => {
         e.preventDefault();
         addNewContact({name: name, number: number});
-    setName();
-    setNumber();
+    setName("");
+    setNumber("");
     }
 
 
@@ -85,5 +85,5 @@ return (
 export default ContactEditor;
 
 ContactEditor.propTypes = {
-addNewContact: PropTypes.func
+    handleSubmit: PropTypes.func
 };
