@@ -9,9 +9,10 @@ function ContactEditor(){
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
 
-    
+
     const dispatch = useDispatch();
     const contacts = useSelector(state => state.contacts.contacts);
+     
     
     const addNewContact = (data) => {
     const existingContact = contacts.find(
